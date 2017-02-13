@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>New York State: NYC 2017 Division C - Event Signups</title>
+      <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="./css/site.min.css">
+      <link rel="stylesheet" type="text/css" href="./css/fullcalendar.min.css">
+  </head>
+  <body>
+    <div id="header">
+      <div role="navigation" class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          </div>
+          <div class="container">
+            <div class="collapse navbar-collapse"><a href="#" class="navbar-brand">Ezra</a>
+              <ul class="nav navbar-nav navbar-left">
+                <li><a href="#">Competitions</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="welcome-back">Welcome back, Paperless Post High School</li>
+                <li><a href="#">School Control Panel</a></li>
+                <li><a href="#">Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="body">
+      <div class="comp-info-container">
+        <div class="title">
+          <h1 class="text-center">New York State: NYC 2017 Division C</h1>
+        </div>
+        <div class="comp-nav container">
+          <ul class="nav navbar-nav navbar-center">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Registration</a></li>
+            <li><a href="#">Forms</a></li>
+            <li><a href="#">Team Numbers</a></li>
+            <li><a href="signups.html">Event Signups</a></li>
+            <li><a href="#">Results</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content" class="container">
+        <h1>Event Signups</h1>
+        <hr>
+        <h2>Competition-Specific Event Signup Information:</h2><p>PLEASE NOTE:&nbsp; For Herpetology and Wind Power events, all teams from a school must sign-up for the same time slot.</p>
+        <hr>
+        <div class="teamColor teamA">Paperless Post High School - Team A has this color when scheduling.</div>
+        <div class="teamColor teamB">Paperless Post High School - Team B has this color when scheduling.</div>
+        <div class="teamColor teamAB">This color represents a slot selected by two teams.</div>
+        <button onclick="return resetSelections()" class="btn reset-slots">Reset time slots?</button>
+        <p>The team name shown below is the team that you will be submitting event signups on behalf of.</p>
+        <p>Before submitting, please make sure that all data is correct and accurate for your current team.</p>
+        <form method="post" onsubmit="eventHandler()">
+          <div class="calendar-input">
+            <select name="team" class="team-picker form-control">
+              <option value="58800ce2a7d76e0400cb1124" counter="1">Paperless Post High School - Team A</option>
+              <option value="58800cfaa7d76e0400cb1125" counter="2">Paperless Post High School - Team B</option>
+            </select>
+          </div>
+          <div class="err"></div>
+          <div id="calendar"></div>
+          <input type="hidden" name="action" value="event_signup_school">
+          <h3 class="text-center">If you have two or more teams, please remember to do signups for both teams!</h3>
+          <input type="submit" name="submit" value="Submit" class="btn">
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/fullcalendar.min.js"></script>
+    <script>
+      var calendar;
+      var finalChoices = [{"id":"Electric Vehicle","events":[{"_id":"electric_vehicle_id1","allDay":false,"className":"electric_vehicle_id1","end":"2017-02-04T10:20:00","slots":10,"slotsLeft":0,"start":"2017-02-04T09:30:00","title":"Electric Vehicle (0 Spots Left)","_allDay":false,"_start":"2017-02-04T09:30:00","_end":"2017-02-04T10:20:00","status":"full","source":"Electric Vehicle","backgroundColor":"#6D8383"},{"_id":"electric_vehicle_id2","allDay":false,"className":"electric_vehicle_id2","end":"2017-02-04T11:20:00.000Z","slots":10,"slotsLeft":2,"start":"2017-02-04T10:30:00.000Z","title":"Electric Vehicle (2 Spots Left)","_allDay":false,"_start":"2017-02-04T10:30:00.000Z","_end":"2017-02-04T11:20:00.000Z","source":"Electric Vehicle"},{"_id":"electric_vehicle_id3","allDay":false,"className":"electric_vehicle_id3","end":"2017-02-04T12:20:00.000Z","slots":10,"slotsLeft":1,"start":"2017-02-04T11:30:00.000Z","title":"Electric Vehicle (1 Spots Left)","_allDay":false,"_start":"2017-02-04T11:30:00.000Z","_end":"2017-02-04T12:20:00.000Z","source":"Electric Vehicle"},{"_id":"electric_vehicle_id4","allDay":false,"className":"electric_vehicle_id4","end":"2017-02-04T13:20:00.000Z","slots":10,"slotsLeft":3,"start":"2017-02-04T12:30:00.000Z","title":"Electric Vehicle (3 Spots Left)","_allDay":false,"_start":"2017-02-04T12:30:00.000Z","_end":"2017-02-04T13:20:00.000Z","source":"Electric Vehicle"},{"_id":"electric_vehicle_id5","allDay":false,"className":"electric_vehicle_id5","end":"2017-02-04T14:20:00.000Z","slots":10,"slotsLeft":3,"start":"2017-02-04T13:30:00.000Z","title":"Electric Vehicle (3 Spots Left)","_allDay":false,"_start":"2017-02-04T13:30:00.000Z","_end":"2017-02-04T14:20:00.000Z","source":"Electric Vehicle"}]},{"id":"Helicopters","events":[{"_id":"helicopters_id1","allDay":false,"className":"helicopters_id1","end":"2017-02-04T12:20:00.000Z","slots":10,"slotsLeft":0,"start":"2017-02-04T11:30:00.000Z","title":"Helicopters (0 Spots Left)","_allDay":false,"_start":"2017-02-04T11:30:00.000Z","_end":"2017-02-04T12:20:00.000Z","status":"full","source":"Helicopters","backgroundColor":"#6D8383"},{"_id":"helicopters_id2","allDay":false,"className":"helicopters_id2","end":"2017-02-04T13:20:00.000Z","slots":10,"slotsLeft":0,"start":"2017-02-04T12:30:00.000Z","title":"Helicopters (0 Spots Left)","_allDay":false,"_start":"2017-02-04T12:30:00.000Z","_end":"2017-02-04T13:20:00.000Z","status":"full","source":"Helicopters","backgroundColor":"#6D8383"},{"_id":"helicopters_id3","allDay":false,"className":"helicopters_id3","end":"2017-02-04T14:20:00.000Z","slots":10,"slotsLeft":0,"start":"2017-02-04T13:30:00.000Z","title":"Helicopters (0 Spots Left)","_allDay":false,"_start":"2017-02-04T13:30:00.000Z","_end":"2017-02-04T14:20:00.000Z","status":"full","source":"Helicopters","backgroundColor":"#6D8383"},{"_id":"helicopters_id4","allDay":false,"className":"helicopters_id4","end":"2017-02-04T15:20:00.000Z","slots":10,"slotsLeft":0,"start":"2017-02-04T14:30:00.000Z","title":"Helicopters (0 Spots Left)","_allDay":false,"_start":"2017-02-04T14:30:00.000Z","_end":"2017-02-04T15:20:00.000Z","status":"full","source":"Helicopters","backgroundColor":"#6D8383"},{"_id":"helicopters_id5","allDay":false,"className":"helicopters_id5","end":"2017-02-04T15:20:00","slots":10,"slotsLeft":10,"start":"2017-02-04T14:30:00","title":"Helicopters (10 Spots Left)","_allDay":false,"_start":"2017-02-04T14:30:00","_end":"2017-02-04T15:20:00","source":"Helicopters"}]},{"id":"Hovercraft","events":[{"_id":"hovercraft_id1","allDay":false,"className":"hovercraft_id1","end":"2017-02-04T10:20:00.000Z","slots":10,"slotsLeft":0,"start":"2017-02-04T09:30:00.000Z","title":"Hovercraft (0 Spots Left)","_allDay":false,"_start":"2017-02-04T09:30:00.000Z","_end":"2017-02-04T10:20:00.000Z","source":"Hovercraft"},{"_id":"hovercraft_id2","allDay":false,"className":"hovercraft_id2","end":"2017-02-04T11:20:00.000Z","slots":10,"slotsLeft":1,"start":"2017-02-04T10:30:00.000Z","title":"Hovercraft (1 Spots Left)","_allDay":false,"_start":"2017-02-04T10:30:00.000Z","_end":"2017-02-04T11:20:00.000Z","source":"Hovercraft"},{"_id":"hovercraft_id3","allDay":false,"className":"hovercraft_id3","end":"2017-02-04T12:20:00.000Z","slots":10,"slotsLeft":0,"start":"2017-02-04T11:30:00.000Z","title":"Hovercraft (0 Spots Left)","_allDay":false,"_start":"2017-02-04T11:30:00.000Z","_end":"2017-02-04T12:20:00.000Z","status":"full","source":"Hovercraft","backgroundColor":"#6D8383"},{"_id":"hovercraft_id4","allDay":false,"className":"hovercraft_id4","end":"2017-02-04T13:20:00.000Z","slots":10,"slotsLeft":6,"start":"2017-02-04T12:30:00.000Z","title":"Hovercraft (6 Spots Left)","_allDay":false,"_start":"2017-02-04T12:30:00.000Z","_end":"2017-02-04T13:20:00.000Z","source":"Hovercraft"},{"_id":"hovercraft_id5","allDay":false,"className":"hovercraft_id5","end":"2017-02-04T14:20:00.000Z","slots":10,"slotsLeft":4,"start":"2017-02-04T13:30:00.000Z","title":"Hovercraft (4 Spots Left)","_allDay":false,"_start":"2017-02-04T13:30:00.000Z","_end":"2017-02-04T14:20:00.000Z","source":"Hovercraft"}]},{"id":"Robot Arm","events":[{"_id":"robot_arm_id1","allDay":false,"className":"robot_arm_id1","end":"2017-02-04T12:20:00.000Z","slots":12,"slotsLeft":6,"start":"2017-02-04T11:30:00.000Z","title":"Robot Arm (6 Spots Left)","_allDay":false,"_start":"2017-02-04T11:30:00.000Z","_end":"2017-02-04T12:20:00.000Z","source":"Robot Arm"},{"_id":"robot_arm_id2","allDay":false,"className":"robot_arm_id2","end":"2017-02-04T13:20:00.000Z","slots":12,"slotsLeft":4,"start":"2017-02-04T12:30:00.000Z","title":"Robot Arm (4 Spots Left)","_allDay":false,"_start":"2017-02-04T12:30:00.000Z","_end":"2017-02-04T13:20:00.000Z","source":"Robot Arm"},{"_id":"robot_arm_id3","allDay":false,"className":"robot_arm_id3","end":"2017-02-04T14:20:00.000Z","slots":12,"slotsLeft":0,"start":"2017-02-04T13:30:00.000Z","title":"Robot Arm (0 Spots Left)","_allDay":false,"_start":"2017-02-04T13:30:00.000Z","_end":"2017-02-04T14:20:00.000Z","status":"full","source":"Robot Arm","backgroundColor":"#6D8383"},{"_id":"robot_arm_id4","allDay":false,"className":"robot_arm_id4","end":"2017-02-04T15:20:00.000Z","slots":12,"slotsLeft":0,"start":"2017-02-04T14:30:00.000Z","title":"Robot Arm (0 Spots Left)","_allDay":false,"_start":"2017-02-04T14:30:00.000Z","_end":"2017-02-04T15:20:00.000Z","status":"full","source":"Robot Arm","backgroundColor":"#6D8383"}]},{"id":"Towers","events":[{"_id":"towers_id1","allDay":false,"className":"towers_id1","end":"2017-02-04T10:20:00.000Z","slots":12,"slotsLeft":6,"start":"2017-02-04T09:30:00.000Z","title":"Towers (6 Spots Left)","_allDay":false,"_start":"2017-02-04T09:30:00.000Z","_end":"2017-02-04T10:20:00.000Z","source":"Towers"},{"_id":"towers_id2","allDay":false,"className":"towers_id2","end":"2017-02-04T11:20:00.000Z","slots":12,"slotsLeft":5,"start":"2017-02-04T10:30:00.000Z","title":"Towers (5 Spots Left)","_allDay":false,"_start":"2017-02-04T10:30:00.000Z","_end":"2017-02-04T11:20:00.000Z","source":"Towers"},{"_id":"towers_id3","allDay":false,"className":"towers_id3","end":"2017-02-04T12:20:00.000Z","slots":12,"slotsLeft":1,"start":"2017-02-04T11:30:00.000Z","title":"Towers (1 Spots Left)","_allDay":false,"_start":"2017-02-04T11:30:00.000Z","_end":"2017-02-04T12:20:00.000Z","source":"Towers"},{"_id":"towers_id4","allDay":false,"className":"towers_id4","end":"2017-02-04T13:20:00.000Z","slots":12,"slotsLeft":6,"start":"2017-02-04T12:30:00.000Z","title":"Towers (6 Spots Left)","_allDay":false,"_start":"2017-02-04T12:30:00.000Z","_end":"2017-02-04T13:20:00.000Z","source":"Towers"},{"_id":"towers_id5","allDay":false,"className":"towers_id5","end":"2017-02-04T14:20:00.000Z","slots":12,"slotsLeft":0,"start":"2017-02-04T13:30:00.000Z","title":"Towers (0 Spots Left)","_allDay":false,"_start":"2017-02-04T13:30:00.000Z","_end":"2017-02-04T14:20:00.000Z","status":"full","source":"Towers","backgroundColor":"#6D8383"}]},{"id":"Wind Power","events":[{"_id":"wind_power_id1","allDay":false,"className":"wind_power_id1","end":"2017-02-04T10:20:00.000Z","slots":12,"slotsLeft":2,"start":"2017-02-04T09:30:00.000Z","title":"Wind Power (2 Spots Left)","_allDay":false,"_start":"2017-02-04T09:30:00.000Z","_end":"2017-02-04T10:20:00.000Z","source":"Wind Power"},{"_id":"wind_power_id2","allDay":false,"className":"wind_power_id2","end":"2017-02-04T11:20:00.000Z","slots":12,"slotsLeft":0,"start":"2017-02-04T10:30:00.000Z","title":"Wind Power (0 Spots Left)","_allDay":false,"_start":"2017-02-04T10:30:00.000Z","_end":"2017-02-04T11:20:00.000Z","status":"full","source":"Wind Power","backgroundColor":"#6D8383"},{"_id":"wind_power_id3","allDay":false,"className":"wind_power_id3","end":"2017-02-04T12:20:00.000Z","slots":12,"slotsLeft":8,"start":"2017-02-04T11:30:00.000Z","title":"Wind Power (8 Spots Left)","_allDay":false,"_start":"2017-02-04T11:30:00.000Z","_end":"2017-02-04T12:20:00.000Z","source":"Wind Power"},{"_id":"wind_power_id4","allDay":false,"className":"wind_power_id4","end":"2017-02-04T13:20:00.000Z","slots":12,"slotsLeft":3,"start":"2017-02-04T12:30:00.000Z","title":"Wind Power (3 Spots Left)","_allDay":false,"_start":"2017-02-04T12:30:00.000Z","_end":"2017-02-04T13:20:00.000Z","source":"Wind Power"},{"_id":"wind_power_id5","allDay":false,"className":"wind_power_id5","end":"2017-02-04T14:20:00.000Z","slots":12,"slotsLeft":1,"start":"2017-02-04T13:30:00.000Z","title":"Wind Power (1 Spots Left)","_allDay":false,"_start":"2017-02-04T13:30:00.000Z","_end":"2017-02-04T14:20:00.000Z","source":"Wind Power"}]},{"id":"Herpetology","events":[{"_id":"herpetology_id1","allDay":false,"className":"herpetology_id1","end":"2017-02-04T10:20:00.000Z","slots":17,"slotsLeft":0,"start":"2017-02-04T09:30:00.000Z","title":"Herpetology (0 Spots Left)","_allDay":false,"_start":"2017-02-04T09:30:00.000Z","_end":"2017-02-04T10:20:00.000Z","status":"full","source":"Herpetology","backgroundColor":"#6D8383"},{"_id":"herpetology_id2","allDay":false,"className":"herpetology_id2","end":"2017-02-04T11:20:00.000Z","slots":17,"slotsLeft":0,"start":"2017-02-04T10:30:00.000Z","title":"Herpetology (0 Spots Left)","_allDay":false,"_start":"2017-02-04T10:30:00.000Z","_end":"2017-02-04T11:20:00.000Z","status":"full","source":"Herpetology","backgroundColor":"#6D8383"},{"_id":"herpetology_id3","allDay":false,"className":"herpetology_id3","end":"2017-02-04T12:20:00.000Z","slots":17,"slotsLeft":12,"start":"2017-02-04T11:30:00.000Z","title":"Herpetology (12 Spots Left)","_allDay":false,"_start":"2017-02-04T11:30:00.000Z","_end":"2017-02-04T12:20:00.000Z","source":"Herpetology"},{"_id":"herpetology_id4","allDay":false,"className":"herpetology_id4","end":"2017-02-04T13:20:00.000Z","slots":17,"slotsLeft":12,"start":"2017-02-04T12:30:00.000Z","title":"Herpetology (12 Spots Left)","_allDay":false,"_start":"2017-02-04T12:30:00.000Z","_end":"2017-02-04T13:20:00.000Z","source":"Herpetology"}]}];
+      var teams        = [{"name":"Paperless Post High School - Team A"},{"name":"Paperless Post High School - Team B"}];
+      var teamMap      = [teams[0].name];
+      if (teams[1]) {
+      	teamMap.push(teams[1].name);
+      }
+      if (teams[2]) {
+      	teamMap.push(teams[2].name);
+      }
+      var startDate    = "2017-02-04";
+    </script>
+    <script src="./js/calendar.js"></script>
+  </body>
+</html>
